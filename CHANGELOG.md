@@ -1,3 +1,37 @@
+## 1.0.1 (2017-11-27)
+- Thanks @joshsmith for fixing some dialyzer errors and adding a proper type for Cloudex.UploadedImage
+
+## 1.0.0 (2017-10-17)
+- Breaking change : When uploading a single file or url you will no
+  longer get a `[{:ok, %Cloudex.UploadedImage{}}]` but just a tuple like
+  `{:ok, %Cloudex.UploadedImage{}}`, uploading multiple files/urls will
+  return a list of tuples just like it already did.
+- Increased test coverage
+
+## 0.2.2 (2017-10-16)
+- bumped specs
+
+## 0.2.1 (2017-10-06)
+- Enforced strict checking of dialyzer
+
+## 0.2.0 (2017-10-03)
+- minor version bump
+- Clean up and reformatting of code
+- added specs and dialyzed
+- Removed unnecessary complicated api split from live and test
+- Its no longer needed to add `config :cloudex, :cloudinary_api,
+  Cloudex.CloudinaryApi` in you config
+- Added VCR test actually test real responses from the live api
+
+## 0.1.20 (2017-08-29)
+Thanks @Tyler-pierce for adding support to rotate images
+
+## 0.1.19 (2017-07-10)
+Thanks @nbancajas for fixing signing bug when appending secret
+
+## 0.1.18 (2017-07-05)
+Thanks @dkln for added the g_face option
+
 ## 0.1.17 (2017-04-12)
 You can add multiple effects using Cloudex.Url.for/2, an example would be adding an overlay to your image, using:
 
@@ -15,7 +49,7 @@ Thanks to @sudostack for fixing a bug when not passing a transformation string a
 - Bumped deps
 
 ## 0.1.15 (2017-01-16)
-Thanks to @pauloancheta you can now also delete a list with ```Cloudex.delete/1```  
+Thanks to @pauloancheta you can now also delete a list with ```Cloudex.delete/1```
 
 ## 0.1.13 (2017-01-09)
 Thanks to @pauloancheta its now possible to also delete image given their public id using ```Cloudex.delete/1```
