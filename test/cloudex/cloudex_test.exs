@@ -30,9 +30,10 @@ defmodule CloudexTest do
   end
 
   test "upload image url" do
-    use_cassette "test_upload_url with both http and https" do
+    use_cassette "test_upload_url with both http and https and data url" do
       assert {:ok, %Cloudex.UploadedImage{}} = Cloudex.upload("http://cdn.mhpbooks.com/uploads/2014/10/shutterstock_172896005.jpg")
       assert {:ok, %Cloudex.UploadedImage{}} = Cloudex.upload("https://cdn.mhpbooks.com/uploads/2014/10/shutterstock_172896005.jpg")
+      assert {:ok, %Cloudex.UploadedImage{}} = Cloudex.upload("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkAQAAAABYmaj5AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QAAKqNIzIAAAAUSURBVDjLY2AYBaNgFIyCUUBPAAAFeAABKXG5/AAAAABJRU5ErkJggg==")
     end
   end
 

@@ -18,6 +18,7 @@ defmodule Cloudex.CloudinaryApi do
     case item do
       "http://" <> _rest -> upload_url(item, opts)
       "https://" <> _rest -> upload_url(item, opts)
+      "data:" <> _rest -> upload_url(item, opts)
       _ -> upload_file(item, opts)
     end
   end

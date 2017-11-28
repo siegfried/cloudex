@@ -58,7 +58,7 @@ defmodule Cloudex do
   defp sanitize_list(item, _sanitized_list) when is_binary(item), do: sanitize_list([item])
   defp sanitize_list([], sanitized_list), do: List.flatten(sanitized_list)
   defp sanitize_list([item | tail], sanitized_list) do
-    result = if Regex.match?(~r/^http/, item), do: {:ok, item}, else: handle_file_or_directory(item)
+    result = if Regex.match?(~r/^http/, item) or Regex.match?(~r/^data:/, item), do: {:ok, item}, else: handle_file_or_directory(item)
     new_list = [result | sanitized_list]
     sanitize_list(tail, new_list)
   end
